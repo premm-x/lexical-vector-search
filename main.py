@@ -47,7 +47,7 @@ def get_jobs( query: str | None = Query(None), location: str | None = None, comp
                 "description": job["description"],
                 "location": job["location"],
                 "company": job["company"],
-                "Link": job["Link"]
+                "url": job["url"]
             })
         return {
             "query": None,
@@ -73,7 +73,7 @@ def get_jobs( query: str | None = Query(None), location: str | None = None, comp
             "description": job["description"],
             "location": job["location"],
             "company": job["company"],
-            "Link": job["Link"]
+            "url": job["url"]
         })
         if len(results) == top_k:
             break

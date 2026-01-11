@@ -19,6 +19,14 @@ skills = [
 
 locations = ["remote", "onsite", "hybrid"]
 
+link = [
+    "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4341785224",
+    "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4348594440", 
+    "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4313057332"
+    "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4358540406"
+    "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4359373732"
+]
+
 companies = [
     "Google", "Amazon", "Microsoft", "Netflix",
     "Startup", "FinTech Company", "E-commerce Company"
@@ -34,7 +42,7 @@ def generate_description(role):
 
 with open("jobs_big.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
-    writer.writerow(["id", "title", "description", "location", "company", "Link"])
+    writer.writerow(["id", "title", "description", "location", "company", "url"])
 
     for i in range(1, 1001): 
         role = random.choice(job_roles)
@@ -44,7 +52,7 @@ with open("jobs_big.csv", "w", newline="", encoding="utf-8") as f:
             generate_description(role),
             random.choice(locations),
             random.choice(companies),
-            "Link to apply"
+            random.choice(link)
         ])
 
 print("✅ jobs_big.csv generated with 50,000 records")

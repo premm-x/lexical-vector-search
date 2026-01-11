@@ -3,8 +3,18 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import faiss
 import numpy as np
 import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 df = pd.read_csv("jobs_big.csv")
 texts = (df["title"] + " " + df["description"]).tolist()

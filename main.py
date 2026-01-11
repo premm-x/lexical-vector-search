@@ -19,6 +19,11 @@ vectors = vectorizer.fit_transform(texts).toarray().astype("float32")
 index = faiss.IndexFlatL2(vectors.shape[1])
 index.add(vectors)
 
+@app.get("/")
+def get_jobs():
+    return { "message" : "Hello from search service" }
+
+
 @app.get("/getjobs")
 def get_jobs( query: str | None = Query(None), location: str | None = None, company: str | None = None, top_k: int = Query(20, le=50)):
 
